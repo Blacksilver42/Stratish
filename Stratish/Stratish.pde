@@ -1,7 +1,7 @@
 // Stratenblitz ARG character maker.
 
 int mode; 
-final String[] TABS = {"Draw","Place","test"};
+final String[] TABS = {"Draw","Place"};
 
 final int MODES = TABS.length; // number of modes
 
