@@ -9,10 +9,11 @@ void drawTopTabs()
   
   fill(255,255,255);
   rect(0,0,width,20);
-  textAlign(BOTTOM,LEFT);
   fill(0);
-  text("1-9 to set mode",710,15);
+  textAlign(RIGHT,BOTTOM);
+  text("1-9 to set mode",width-10,15);
   
+  textAlign(LEFT,BOTTOM);
   for(i=0;i<MODES;i++){
     x = i*100;
     if(mode == i) {
