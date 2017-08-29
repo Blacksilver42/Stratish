@@ -3,7 +3,7 @@
 int mode; 
 final String[] TABS = {"Draw","Place","test"};
 
-final int MODES = 3; // number of modes
+final int MODES = TABS.length; // number of modes
 
 void setup(){
   size(800,820);
@@ -27,4 +27,15 @@ void draw(){
   clear();
   background(128);
   drawTopTabs();
+  switch(mode){
+    case 0:
+      M_drawing();
+      break;
+    case 1:
+      M_placing();
+      break;
+    default:
+      textAlign(CENTER,CENTER);
+      text("This mode isn't.",width/2,height/2);
+  }
 }

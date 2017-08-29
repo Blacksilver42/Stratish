@@ -9,7 +9,7 @@ void drawTopTabs()
   
   fill(255,255,255);
   rect(0,0,width,20);
-  
+  textAlign(BOTTOM,LEFT);
   fill(0);
   text("1-9 to set mode",710,15);
   

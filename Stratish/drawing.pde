@@ -1,6 +1,6 @@
 // functions for the drawing mode (0)
 
 
-void drawGrid(){
+void M_drawing(){
   
 }
