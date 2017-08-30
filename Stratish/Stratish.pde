@@ -7,7 +7,7 @@ final String[] TABS = {"Draw","Place"};
 final int MODES = TABS.length; // number of modes
 PImage glyphs[] = new PImage[6+14];
 int sideMenuY=0;
-final int MAX_SIDEMENUSCROLL = -(glyphs.length)*120+100;
+final int MAX_SIDEMENUSCROLL = -(glyphs.length-6)*120+80;
 final int MIN_SIDEMENUSCROLL = 0;
 
 
@@ -43,7 +43,7 @@ void mouseWheel(MouseEvent event){
 
 
 void draw(){
-  //if(frameCount%60==0) sideMenu_DBG();
+  if(frameCount%60==0) sideMenu_DBG();
   
   clear();
   background(128);
