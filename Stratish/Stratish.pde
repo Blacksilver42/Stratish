@@ -5,9 +5,13 @@
 int mode; 
 final String[] TABS = {"Draw","Place"};
 final int MODES = TABS.length; // number of modes
-PImage glyphs[] = new PImage[6];
+PImage glyphs[] = new PImage[6+14];
 int sideMenuY=0;
-final int MAX_SIDEMENUSCROLL = -(glyphs.length-1)*120+100;
+final int MAX_SIDEMENUSCROLL = -(glyphs.length)*120+100;
+final int MIN_SIDEMENUSCROLL = 0;
+
+
+
 void setup(){
   size(900,820);
   mode=1;
@@ -34,11 +38,13 @@ void mouseWheel(MouseEvent event){
   int e = event.getCount();
   sideMenuY += e*10;
   sideMenuY = max(sideMenuY,MAX_SIDEMENUSCROLL);
+  sideMenuY = min(sideMenuY,MIN_SIDEMENUSCROLL);
 }
 
 
 void draw(){
-  if(frameCount%60==0) sideMenu_DBG();
+  //if(frameCount%60==0) sideMenu_DBG();
+  
   clear();
   background(128);
   switch(mode){

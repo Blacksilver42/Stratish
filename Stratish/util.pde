@@ -38,4 +38,7 @@ void loadImgs()
   for(i=1;i<=6;i++){
     glyphs[i-1] = loadImage(String.format("Bold_%02d.png",i));
   }
+  for(i=1;i<=14;i++){
+    glyphs[i+5] = loadImage(String.format("Thin_%02d.png",i));
+  }  
 }
