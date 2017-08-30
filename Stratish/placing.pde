@@ -17,6 +17,10 @@ void drawSideMenu() {
   popMatrix();
 }
 
+void sideMenu_DBG(){
+  System.out.printf("sideMenuY = %d (%d ~ %d)\n",sideMenuY,MAX_SIDEMENUSCROLL,MIN_SIDEMENUSCROLL);
+}
+
 void drawGrid(){
   stroke(2);
   
