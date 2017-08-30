@@ -27,3 +27,15 @@ void drawTopTabs()
     
   }
 }
+
+
+void loadImgs()
+/* Load in the bold characters. 
+ * They're named "Bold_01" through "Bold_06", so we can be cheeky and use sprintf.
+ */
+{
+  int i;
+  for(i=1;i<=6;i++){
+    glyphs[i-1] = loadImage(String.format("Bold_%02d.png",i));
+  }
+}
