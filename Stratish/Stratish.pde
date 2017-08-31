@@ -1,14 +1,16 @@
 // Stratenblitz ARG character maker.
 // Copyright (c) Connor "Blacksilver" [REDACTED], 2017
 
-
-int mode; 
+final int MIN_SIDEMENUSCROLL = 0;
 final String[] TABS = {"Draw","Place"};
 final int MODES = TABS.length; // number of modes
+
+
+int mode; 
 PImage glyphs[] = new PImage[6+14];
 int sideMenuY=0;
+
 final int MAX_SIDEMENUSCROLL = -(glyphs.length-6)*120+80;
-final int MIN_SIDEMENUSCROLL = 0;
 
 
 
@@ -41,10 +43,23 @@ void mouseWheel(MouseEvent event){
   sideMenuY = min(sideMenuY,MIN_SIDEMENUSCROLL);
 }
 
+void mousePressed(){
+  System.out.printf("Click (%d,%d)\n",mouseX,mouseY);
+  if(mouseY<20){
+    // We're in the tab area...
+    int tab = mouseX/100;
+    println(tab);
+    if(tab < TABS.length)
+      mode = tab;
+    else 
+      return;
+  }
+}
+
 
 void draw(){
   //if(frameCount%60==0) sideMenu_DBG();
-  
+  //pushMatrix();
   clear();
   background(128);
   switch(mode){
@@ -58,5 +73,6 @@ void draw(){
       textAlign(CENTER,CENTER);
       text("Invalid mode!",width/2,height/2);
   }
+  //popMatrix();
   drawTopTabs();
 }
