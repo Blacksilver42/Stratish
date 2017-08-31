@@ -36,14 +36,14 @@ void keyPressed(){
 
 void mouseWheel(MouseEvent event){
   int e = event.getCount();
-  sideMenuY += e*10;
+  sideMenuY -= e*10;
   sideMenuY = max(sideMenuY,MAX_SIDEMENUSCROLL);
   sideMenuY = min(sideMenuY,MIN_SIDEMENUSCROLL);
 }
 
 
 void draw(){
-  if(frameCount%60==0) sideMenu_DBG();
+  //if(frameCount%60==0) sideMenu_DBG();
   
   clear();
   background(128);
