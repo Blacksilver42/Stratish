@@ -9,6 +9,8 @@ final int MODES = TABS.length; // number of modes
 int mode; 
 PImage glyphs[] = new PImage[6+14];
 int sideMenuY=0;
+int[][] grid = new int[8][8];
+
 
 final int MAX_SIDEMENUSCROLL = -(glyphs.length-6)*120+80;
 
@@ -18,6 +20,7 @@ void setup(){
   size(900,820);
   mode=1;
   loadImgs();
+  initGrid();
 }
 
 void keyPressed(){
@@ -37,6 +40,7 @@ void keyPressed(){
 }
 
 void mouseWheel(MouseEvent event){
+  // Danger: sideMenuY gets more negative as you scroll down.
   int e = event.getCount();
   sideMenuY -= e*10;
   sideMenuY = max(sideMenuY,MAX_SIDEMENUSCROLL);
@@ -48,12 +52,15 @@ void mousePressed(){
   if(mouseY<20){
     // We're in the tab area...
     int tab = mouseX/100;
-    println(tab);
+    //println(tab);
     if(tab < TABS.length)
       mode = tab;
     else 
       return;
   }
+  
+  if(mouseX>width-100)
+    sideMenu_click();
 }
 
 

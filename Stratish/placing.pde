@@ -25,7 +25,22 @@ void drawGrid(){
   stroke(2);
   
   for(int i=1;i<8;i++){
-    line(i*100,20,i*100,height);
-    line(0,i*100+20,width-100,i*100+20);
+    line(i*100,20,i*100,height); // Vertical
+    line(0,i*100+20,width-100,i*100+19); // Horizontal
   }
+}
+
+void sideMenu_click(){
+  pushMatrix();
+  translate(width-100,sideMenuY);
+  int x,y;
+  x = (mouseX - width) + 100;
+  y = mouseY - 20;
+  
+  System.out.printf("Converted mouse click (%d,%d)\n",x,y);
+  popMatrix();
+}
+
+void initGrid(){
+  
 }

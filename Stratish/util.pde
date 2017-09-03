@@ -2,8 +2,8 @@
 
 
 void drawTopTabs()
-// draws tabs at top; called every frame.
-// also draws the mode selection instructions.
+/* draws tabs at top; called every frame.
+ */
 {
   int i,x;
   
@@ -11,7 +11,6 @@ void drawTopTabs()
   rect(0,0,width,20);
   fill(0);
   textAlign(RIGHT,BOTTOM);
-  text("1-9 to set mode",width-10,15);
   
   textAlign(LEFT,BOTTOM);
   for(i=0;i<MODES;i++){
@@ -30,8 +29,9 @@ void drawTopTabs()
 
 
 void loadImgs()
-/* Load in the bold characters. 
- * They're named "Bold_01" through "Bold_06", so we can be cheeky and use sprintf.
+/* Load in the glyphs. 
+ * They're named "Bold_01" through "Bold_06"; "Thin_01" through "Thin_14",
+ * so we can be cheeky and use sprintf.
  */
 {
   int i;
