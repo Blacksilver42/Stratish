@@ -13,7 +13,7 @@ void drawTopTabs()
   textAlign(RIGHT,BOTTOM);
   
   textAlign(LEFT,BOTTOM);
-  for(i=0;i<MODES;i++){
+  for(i=0;i<NMODES;i++){
     x = i*100;
     if(mode == i) {
       fill(#BADA55);

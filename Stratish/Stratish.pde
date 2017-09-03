@@ -1,18 +1,19 @@
 // Stratenblitz ARG character maker.
 // Copyright (c) Connor "Blacksilver" [REDACTED], 2017
 
-final int MIN_SIDEMENUSCROLL = 0;
-final String[] TABS = {"Draw","Place"};
-final int MODES = TABS.length; // number of modes
 
 
-int mode; 
-PImage glyphs[] = new PImage[6+14];
-int sideMenuY=0;
-int[][] grid = new int[8][8];
+final String[] TABS = {"Draw","Place"}; // Tab names
+final int NMODES = TABS.length;         // number of modes
 
 
-final int MAX_SIDEMENUSCROLL = -(glyphs.length-6)*120+80;
+int mode;                               // What are we doing?
+PImage glyphs[] = new PImage[6+14];     // 6 vowels + 14 consonants
+int sideMenuY=0;                        // Scroll amount of the side menu in place-mode.
+int[][] grid = new int[8][8];           // Characters on the placing-grid
+int holding;
+
+
 
 
 
@@ -27,7 +28,7 @@ void keyPressed(){
   if(key>=int('1') && key<=int('9')){ // Don't ask how this works.
     mode = key-int('1');              // Or this. You don't want to know.
     
-    if(mode >= MODES){ // mode went out of bounds.
+    if(mode >= NMODES){ // mode went out of bounds.
       mode=0;
       println("No.");
     } else {
