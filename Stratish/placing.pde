@@ -10,6 +10,7 @@ void M_placing()
 {
   drawSideMenu();
   drawGrid();
+  drawHolding();
 }
 
 

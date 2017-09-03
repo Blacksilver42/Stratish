@@ -24,6 +24,10 @@ void drawTopTabs()
     fill(0);
     text(TABS[i], x+10, 15);
   }
+  
+  
+  text(String.format("Holding glyph %d",holding),300,15);
+  
 }
 
 

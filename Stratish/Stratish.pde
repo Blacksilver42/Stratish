@@ -51,10 +51,17 @@ void mousePressed() {
   System.out.printf("Click (%d,%d)\n", mouseX, mouseY);
   if (mouseY<20) {
     tab_click();
+    return;
   }
 
-  if (mouseX>width-100)
+  if (mouseX>width-100) {
     sideMenu_click();
+    return;
+  }
+
+  if (mode==1) { // Placing
+    placeOnGrid();
+  }
 }
 
 
