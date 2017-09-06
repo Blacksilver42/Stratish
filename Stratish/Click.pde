@@ -43,7 +43,7 @@ void placeOnGrid(){
   // mousePressed does that for us.
   
   x = mouseX/100;
-  y = (mouseY+20)/100;
+  y = (mouseY-20)/100;
   
   grid[x][y] = holding;
   holding = -1;
