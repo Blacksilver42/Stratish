@@ -14,6 +14,12 @@ void sideMenu_click()
  * Called by mousePressed if mouseX > (width-100)
  */
 {
+  // If you're already holding something, drop it and return.
+  if(holding >= 0){
+    holding = -1;
+    return;
+  }
+  
   pushMatrix();
   translate(width-100, sideMenuY);
 
@@ -24,8 +30,7 @@ void sideMenu_click()
 
   // Now, what did you click on?
   holding = y/120;
-
-
+  
   System.out.printf("Converted mouse click (%d,%d). Glyph %d\n", x, y, holding);
   popMatrix();
 }
