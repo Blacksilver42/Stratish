@@ -26,7 +26,7 @@ void drawTopTabs()
   }
   
   
-  text(String.format("Holding glyph %d",holding),300,15);
+  text(String.format("Holding glyph %d. Press [e] to export.",holding),300,15);
   
 }
 
@@ -44,4 +44,24 @@ void loadImgs()
   for (i=1; i<=14; i++) {
     glyphs[i+5] = loadImage(String.format("Thin_%02d.png", i));
   }
+}
+
+void export(){
+  println("======= Exporting... =======");
+  println("> Setting background to white...");
+  background(255);
+  println("> Drawing glyphs...");
+  int i,j,n=0;
+  
+  for(i=0;i<8;i++){
+    for(j=0;j<8;j++){
+      if(grid[i][j] >=0){
+        image(glyphs[grid[i][j]],i*100,j*100);
+        n++;
+      }
+    }
+  }
+  println("> Drew",n,"glyphs.");
+  println("> Saving...");
+  save("Export.png");
 }

@@ -11,7 +11,7 @@ int mode;                               // What are we doing?
 PImage glyphs[] = new PImage[6+14];     // 6 vowels + 14 consonants
 int sideMenuY=0;                        // Scroll amount of the side menu in place-mode.
 int[][] grid = new int[8][8];           // Characters on the placing-grid
-
+int doExport = 0;
 
 
 
@@ -37,6 +37,7 @@ void keyPressed() {
 
   if (key == 'i') sideMenuY+=5;
   if (key == 'k') sideMenuY+=5;
+  if (key == 'e') doExport = 1;
 }
 
 void mouseWheel(MouseEvent event) {
@@ -66,10 +67,16 @@ void mousePressed() {
 
 
 void draw() {
-  //if(frameCount%60==0) sideMenu_DBG();
-  //pushMatrix();
   clear();
   background(128);
+  
+  // Are we exporting?
+  if(doExport == 1){
+    export();
+    doExport = 0;
+    return;
+  }
+  
   switch(mode) {
   case 0:
     M_drawing();
@@ -81,6 +88,7 @@ void draw() {
     textAlign(CENTER, CENTER);
     text("Invalid mode!", width/2, height/2);
   }
-  //popMatrix();
+  
+  // We do this last so it's on top of everything else.
   drawTopTabs();
 }
